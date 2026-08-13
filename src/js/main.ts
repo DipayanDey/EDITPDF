@@ -110,6 +110,73 @@ const init = () => {
         });
     }
 
+    // Theme toggle functionality
+    const themeButtons = [
+        document.getElementById('theme-toggle'),
+        document.getElementById('mobile-theme-toggle'),
+        document.getElementById('mobile-menu-theme-toggle')
+    ].filter(Boolean);
+
+    const getSystemTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    
+    const applyTheme = (theme: string) => {
+        const html = document.documentElement;
+        html.setAttribute('data-theme', theme);
+        
+        if (theme === 'system') {
+            const systemPrefersDark = getSystemTheme();
+            html.classList.toggle('dark', systemPrefersDark === 'dark');
+        } else {
+            html.classList.toggle('dark', theme === 'dark');
+        }
+        
+        // Update button titles and icons
+        const iconNames = { 'light': 'sun', 'dark': 'moon', 'system': 'monitor' };
+        const icon = iconNames[theme as keyof typeof iconNames] || 'monitor';
+        
+        themeButtons.forEach(btn => {
+            if (btn) {
+                btn.setAttribute('title', `Theme: ${theme.charAt(0).toUpperCase() + theme.slice(1)}`);
+                const iconEl = btn.querySelector('[data-lucide]');
+                if (iconEl) {
+                    iconEl.setAttribute('data-lucide', icon);
+                }
+                const textSpan = btn.querySelector('span');
+                if (textSpan) {
+                    textSpan.textContent = `Theme: ${theme.charAt(0).toUpperCase() + theme.slice(1)}`;
+                }
+            }
+        });
+        
+        createIcons({ icons });
+        localStorage.setItem('theme', theme);
+    };
+
+    const cycleTheme = () => {
+        const currentTheme = localStorage.getItem('theme') || 'system';
+        const themes: ('light' | 'dark' | 'system')[] = ['system', 'light', 'dark'];
+        const currentIndex = themes.indexOf(currentTheme as any);
+        const nextTheme = themes[(currentIndex + 1) % themes.length];
+        applyTheme(nextTheme);
+    };
+
+    themeButtons.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', cycleTheme);
+        }
+    });
+
+    // Initialize theme buttons on load
+    const savedTheme = localStorage.getItem('theme') || 'system';
+    applyTheme(savedTheme);
+
+    // Listen for system theme changes when in system mode
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (localStorage.getItem('theme') === 'system') {
+            document.documentElement.classList.toggle('dark', e.matches);
+        }
+    });
+
     createIcons({ icons });
     console.log('Please share our tool and share the love!');
 };
