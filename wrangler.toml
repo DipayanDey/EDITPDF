@@ -1,7 +1,10 @@
 # Cloudflare Pages configuration for PDF Tools
 name = "pdf-tools"
 compatibility_date = "2024-01-01"
-pages_build_output_dir = "dist"
+
+# Assets configuration for Cloudflare Pages
+[assets]
+directory = "./dist"
 
 # Optional: Custom domain (uncomment and configure)
 # routes = [
