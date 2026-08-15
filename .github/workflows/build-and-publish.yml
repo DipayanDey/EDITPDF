@@ -26,5 +26,5 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: bentopdf/bentopdf:latest
+          tags: PDF Tools/PDF Tools:latest
           platforms: linux/amd64,linux/arm64

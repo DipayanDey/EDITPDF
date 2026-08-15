@@ -7,6 +7,10 @@ const STANDARD_SIZES = {
     'A5': { width: 419.53, height: 595.28 },
 };
 
+import { icons, createIcons } from "lucide";
+import { showAlert } from '../ui.ts';
+
+
 export function getStandardPageName(width: any, height: any) {
     const tolerance = 1; // Allow for minor floating point variations
     for (const [name, size] of Object.entries(STANDARD_SIZES)) {
@@ -55,15 +59,120 @@ export const formatBytes = (bytes: any, decimals = 1) => {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 };
 
+export const showDownloadModal = (blob: any, filename: any) => {
+    // Create download modal with ad option
+    const modalHtml = `
+        <div id="download-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+            <div class="bg-gray-800 max-w-md w-full p-6 rounded-lg border border-gray-700 shadow-xl">
+                <h3 class="text-xl font-bold text-white mb-2">Download Complete</h3>
+                <p class="text-gray-300 mb-6">Your file <strong>${filename}</strong> is ready to download.</p>
+                
+
+                <div class="space-y-3">
+                    <button id="download-now-btn" class="btn w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors">
+                        <i data-lucide="download" class="w-5 h-5"></i>
+                        Download Now
+                    </button>
+                    
+                    <!-- Google AdSense Banner Ad -->
+                    <div class="ad-banner my-4">
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-1148468050827314"
+                             data-ad-slot="YOUR_AD_SLOT_ID"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                    
+                    <p class="text-xs text-gray-500 text-center">Ad supports PDF Tools development</p>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Remove existing modal if any
+    const existingModal = document.getElementById('download-modal');
+    if (existingModal) existingModal.remove();
+    
+    // Add modal to body
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+    
+    // Initialize Lucide icons for new elements
+    if (typeof createIcons === 'function') {
+        setTimeout(() => createIcons({icons}), 0);
+    }
+    
+    // Add event listeners
+    const downloadBtn = document.getElementById('download-now-btn');
+    const adBtn = document.getElementById('watch-ad-btn');
+    const modal = document.getElementById('download-modal');
+    
+    const cleanup = () => {
+        if (modal) modal.remove();
+    };
+    
+    downloadBtn.addEventListener('click', () => {
+        cleanup();
+        // Actual download
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    });
+    
+    adBtn.addEventListener('click', () => {
+        cleanup();
+        // Show ad (placeholder - integrate with actual ad network)
+        showAdAndDownload(blob, filename);
+    });
+    
+    // Close on backdrop click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            cleanup();
+        }
+    });
+    
+    // Close on Escape key
+    const handleEscape = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+            cleanup();
+            document.removeEventListener('keydown', handleEscape);
+        }
+    };
+    document.addEventListener('keydown', handleEscape);
+};
+
+// Placeholder for ad integration - replace with actual ad network
+export const showAdAndDownload = (blob: any, filename: any) => {
+    // This is where you'd integrate with an ad network like Google AdSense, AdMob, etc.
+    // For now, we'll simulate an ad with a delay
+    showAlert('Advertisement', 'A short video ad would play here. In production, integrate with your ad network (Google AdSense, etc.).');
+    
+    // Simulate ad duration
+    setTimeout(() => {
+        // Actual download after "ad"
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }, 2000);
+};
+
 export const downloadFile = (blob: any, filename: any) => {
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // Show download modal with ad option instead of direct download
+    showDownloadModal(blob, filename);
 };
 
 export const readFileAsArrayBuffer = (file: any) => {

@@ -1,24 +1,24 @@
-# BentoPDF
+# PDF Tools
 
-![Docker Pulls](https://img.shields.io/docker/pulls/bentopdf/bentopdf)
+![Docker Pulls](https://img.shields.io/docker/pulls/PDF Tools/PDF Tools)
 [![Ko-fi](https://img.shields.io/badge/Buy%20me%20a%20Coffee-yellow?logo=kofi&style=flat-square)](https://ko-fi.com/alio0)
 
-**BentoPDF** is a powerful, privacy-first, client-side PDF toolkit that allows you to manipulate, edit, merge, and process PDF files directly in your browser. No server-side processing is required, ensuring your files remain secure and private.
+**PDF Tools** is a powerful, privacy-first, client-side PDF toolkit that allows you to manipulate, edit, merge, and process PDF files directly in your browser. No server-side processing is required, ensuring your files remain secure and private.
 
 ---
 
-## ✨ Why BentoPDF?
+## ✨ Why PDF Tools?
 
 -   **Privacy First**: All processing happens in your browser. Your files are never uploaded to a server, guaranteeing 100% privacy.
 -   **No Limits**: Manipulate as many files as you want, as often you want. There are no restrictions or upload limits.
--   **High Performance**: Built with modern web technologies, BentoPDF is fast and efficient, handling even large PDF files with ease.
--   **Completely Free**: BentoPDF is a free and open-source tool for everyone.
+-   **High Performance**: Built with modern web technologies, PDF Tools is fast and efficient, handling even large PDF files with ease.
+-   **Completely Free**: PDF Tools is a free and open-source tool for everyone.
 
 ---
 
 ## 🛠️ Features / Tools Supported
 
-BentoPDF offers a comprehensive suite of tools to handle all your PDF needs.
+PDF Tools offers a comprehensive suite of tools to handle all your PDF needs.
 
 ### Organize & Manage PDFs
 | Tool Name | Description |
@@ -78,30 +78,30 @@ BentoPDF offers a comprehensive suite of tools to handle all your PDF needs.
 
 ## 🚀 Getting Started
 
-You can run BentoPDF locally for development or personal use.
+You can run PDF Tools locally for development or personal use.
 
 ### Prerequisites
 -   [Node.js](https://nodejs.org/) (v18 or higher recommended)
 -   [npm](https://www.npmjs.com/) (or yarn/pnpm)
 -   [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/install/) (for containerized setup)
 
-### 🚀 Run BentoPDF with Docker (Quick Start)
-  You can run BentoPDF directly from Docker Hub without cloning the repository:
+### 🚀 Run PDF Tools with Docker (Quick Start)
+  You can run PDF Tools directly from Docker Hub without cloning the repository:
 
 
 ```bash
-docker pull bentopdf/bentopdf:latest
-docker run -p 3000:80 bentopdf/bentopdf:latest
+docker pull PDF Tools/PDF Tools:latest
+docker run -p 3000:80 PDF Tools/PDF Tools:latest
 ```
 Open your browser at: http://localhost:3000.
-This is the fastest way to try BentoPDF without setting up a development environment.
+This is the fastest way to try PDF Tools without setting up a development environment.
 
 ### 🚀 Installation with npm
 
 1.  **Clone the Repository**:
     ```bash
-    git clone https://github.com/alam00000/bentopdf.git
-    cd bentopdf
+    git clone https://github.com/alam00000/PDF Tools.git
+    cd PDF Tools
     ```
 
 2.  **Install Dependencies**:
@@ -119,8 +119,8 @@ This is the fastest way to try BentoPDF without setting up a development environ
 
 1.  **Clone the Repository**:
     ```bash
-    git clone https://github.com/alam00000/bentopdf.git
-    cd bentopdf
+    git clone https://github.com/alam00000/PDF Tools.git
+    cd PDF Tools
     ```
 
 2.  **Run with Docker Compose**:
@@ -142,7 +142,7 @@ This is the fastest way to try BentoPDF without setting up a development environ
 
 ## 🛠️ Tech Stack & Background
 
-BentoPDF was originally built using **HTML**, **CSS**, and **vanilla JavaScript**. As the project grew, it was migrated to a modern stack for better maintainability and scalability:
+PDF Tools was originally built using **HTML**, **CSS**, and **vanilla JavaScript**. As the project grew, it was migrated to a modern stack for better maintainability and scalability:
 
 -   **Vite**: A fast build tool for modern web development.
 -   **TypeScript**: For type safety and an improved developer experience.
@@ -175,13 +175,13 @@ We welcome contributions from the community! Here’s how you can get started:
 3.  Make your changes and commit them with a clear message.
 4.  **Open a Pull Request** and describe the changes you've made.
 
-Have an idea for a new tool or an improvement? [Open an issue](https://github.com/alam00000/bentopdf/issues) to discuss it first.
+Have an idea for a new tool or an improvement? [Open an issue](https://github.com/alam00000/PDF Tools/issues) to discuss it first.
 
 ---
 
 ## Special Thanks
 
-BentoPDF wouldn’t be possible without the amazing open-source tools and libraries that power it. We’d like to extend our heartfelt thanks to the creators and maintainers of:  
+PDF Tools wouldn’t be possible without the amazing open-source tools and libraries that power it. We’d like to extend our heartfelt thanks to the creators and maintainers of:  
 
 - **[PDFLib.js](https://pdf-lib.js.org/)** – For enabling powerful client-side PDF manipulation.  
 - **[PDF.js](https://mozilla.github.io/pdf.js/)** – For the robust PDF rendering engine in the browser.  
@@ -195,4 +195,4 @@ Your work inspires and empowers developers everywhere. Thank you for making open
 
 ## 📜 License
 
-This project is licensed under the **Apache 2.0**. See the [LICENSE](https://github.com/alam00000/bentopdf/blob/main/LICENSE) file for details.
+This project is licensed under the **Apache 2.0**. See the [LICENSE](https://github.com/alam00000/PDF Tools/blob/main/LICENSE) file for details.

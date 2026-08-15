@@ -4,6 +4,7 @@ import { setupToolInterface } from './handlers/toolSelectionHandler.js';
 import { createIcons, icons } from 'lucide';
 import * as pdfjsLib from 'pdfjs-dist';
 import "../css/styles.css";
+import './utils/helpers.ts';
 
 const init = () => {
     pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(

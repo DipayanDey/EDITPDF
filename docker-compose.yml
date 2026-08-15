@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-  bentopdf:
+  PDF Tools:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: bentopdf
+    container_name: PDF Tools
     ports:
       - "3000:80"
     restart: unless-stopped

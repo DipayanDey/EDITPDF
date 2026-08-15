@@ -1,0 +1,16 @@
+# Cloudflare Pages configuration for PDF Tools
+name = "pdf-tools"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "dist"
+
+# Optional: Custom domain (uncomment and configure)
+# routes = [
+#   { pattern = "pdftools.yourdomain.com/*", zone_name = "yourdomain.com" }
+# ]
+
+# Environment variables (if needed)
+# [vars]
+# MY_VARIABLE = "value"
+
+# Build command (optional - Cloudflare can auto-detect)
+# build_command = "npm run build"

@@ -1,7 +1,7 @@
 
-# Contributing to BentoPDF
+# Contributing to PDF Tools
 
-First off, thank you for considering contributing to **BentoPDF**! Your help makes this project better for everyone.
+First off, thank you for considering contributing to **PDF Tools**! Your help makes this project better for everyone.
 
 This document outlines how to contribute, report issues, and get involved in the project.
 
@@ -50,8 +50,8 @@ When submitting code contributions, please use our [pull request template](.gith
 
 1.  **Fork the Repository**
     ```bash
-    git clone https://github.com/alam00000/bentopdf.git
-    cd bento-pdf
+    git clone https://github.com/alam00000/PDF Tools.git
+    cd PDF Tools
     npm install
     ```
 
@@ -105,7 +105,7 @@ When submitting code contributions, please use our [pull request template](.gith
 
 If you discover a security vulnerability, please **do not** open a public issue. Instead, contact the project maintainer directly at:
 
-**Email:** [contact@bentopdf.com](mailto:contact@bentopdf.com)
+**Email:** [contact@PDF Tools.com](mailto:contact@PDF Tools.com)
 
 ---
 
@@ -115,4 +115,4 @@ All contributors are expected to follow the Code of Conduct. Be respectful and c
 
 ---
 
-Thank you for helping make **BentoPDF** a better library for everyone!
+Thank you for helping make **PDF Tools** a better library for everyone!
